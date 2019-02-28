@@ -1,0 +1,101 @@
+<div id="qbootstrap-contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 animate-box">
+                <h3>Contact Information</h3>
+                <div class="row contact-info-wrap">
+                    <div class="col-md-3">
+                        <p><span><i class="icon-location"></i></span> 198 West 21th Street, <br> Suite 721 New York NY 10016</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><span><i class="icon-phone"></i></span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><span><i class="icon-mail"></i></span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p><span><i class="icon-globe-outline"></i></span> <a href="https://qbootstrap.com/">QBootstrap.com</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 col-md-offset-1 animate-box">
+                <h3>Get In Touch</h3>
+                <form [formGroup]="angForm" novalidate>
+                    <div class="row form-group">
+                        <div class="col-md-6">
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" class="form-control" formControlName="fname" #fname>
+                        </div>
+                        <div *ngIf="angForm.controls['fname'].invalid && (angForm.controls['fname'].dirty || angForm.controls['fname'].touched)" class="alert alert-danger">
+                                <div *ngIf="angForm.controls['fname'].errors.required">
+                                  First Name is required.
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" class="form-control" formControlName="lname" #lname>
+                        </div>
+                      </div>
+                      <div *ngIf="angForm.controls['lname'].invalid && (angForm.controls['lname'].dirty || angForm.controls['lname'].touched)" class="alert alert-danger">
+                            <div *ngIf="angForm.controls['lname'].errors.required">
+                              Last Name is required.
+                            </div>
+                          </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" class="form-control" formControlName="email" #email>
+                        </div>
+                    </div>
+                    <div *ngIf="angForm.controls['email'].invalid && (angForm.controls['email'].dirty || angForm.controls['email'].touched)" class="alert alert-danger">
+                            <div *ngIf="angForm.controls['email'].errors.required">
+                              Email is required.
+                            </div>
+                          </div>
+
+                    
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="subject">Subject</label>
+                            <input type="text" name="subject" class="form-control" formControlName="subject"#subject>
+                        </div>
+                    </div>
+                    <div *ngIf="angForm.controls['subject'].invalid && (angForm.controls['subject'].dirty || angForm.controls['subject'].touched)" class="alert alert-danger">
+                            <div *ngIf="angForm.controls['subject'].errors.required">
+                              Unit Name is required.
+                            </div>
+                          </div>
+
+                    <div class="row form-group">
+                        <div class="col-md-12">
+                            <label for="message">Message</label>
+                            <textarea name="message" name="message" cols="30" rows="10" class="form-control" formControlName="message" #message></textarea>
+                        </div>
+                    </div>
+                    <div *ngIf="angForm.controls['message'].invalid && (angForm.controls['message'].dirty || angForm.controls['message'].touched)" class="alert alert-danger">
+                            <div *ngIf="angForm.controls['message'].errors.required">
+                              Message is required.
+                            </div>
+                          </div>
+                    <div class="form-group text-center">
+                        <button  (click)="addAdUnit(fname.value, lname.value,email.value,subject.value,message.value)"[disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Create Unit</button>
+                    </div>
+
+                    <div  class="col-md-6">
+                     
+                       <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+                       <div class="form-group text-center">
+                        <button type="button" class="btn btn-success btn-s" 
+                                (click)="uploader.uploadAll()" 
+                                [disabled]="!uploader.getNotUploadedItems().length" >
+                                 Upload an Image
+                        </button>
+                      </div>	
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

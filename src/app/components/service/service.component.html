@@ -1,0 +1,40 @@
+<div id="qbootstrap-doctor">
+    <div class="container-fluid">
+        <div class="row animate-box">
+            <div class="col-md-6 col-md-offset-3 text-center qbootstrap-heading">
+                <h2>Professional Doctors</h2>
+                <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-4" *ngFor="let adunit of adunits"  [class.selected]="adunit.fname === selectedfname">
+                <div class="doctor">
+                    <img style="border-radius: 100%" src="./assets/uploads/photo-1547801881858.jpg" alt="Random Name" width="255" height="255">
+                    
+                    <p><a [routerLink]="['/service/', adunit.fname]">{{adunit.fname}}</a></p>
+                    <p><a href="#">{{adunit.lname}}</a></p>
+                  
+                    <ul class="qbootstrap-social">
+                        <li><a href="#"><i class="icon-facebook2"></i></a></li>
+                        <li><a href="#"><i class="icon-twitter2"></i></a></li>
+                        <li><a href="#"><i class="icon-yahoo2"></i></a></li>
+                        <li><a href="#"><i class="icon-google2"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+       
+           
+            
+                   
+                      
+                   
+                
+            
+    
+      
+
+       
